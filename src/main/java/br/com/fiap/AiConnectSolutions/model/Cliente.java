@@ -53,7 +53,9 @@ public class Cliente {
     @Size(min=3, max=500)
     private String interesses;
     
-    // private HistoricoInteresse historico;
+    @NotBlank
+    @Size(min=3, max=50)
+    private String historico;
 
     // @OneToMany
     // private List<Endereco> enderecos;

@@ -40,17 +40,18 @@ Retorna todos os clientes cadastrados.
 
 ```js
 [
-  {
-	"id": 1,
-	"nome": "Fulano da Silva",
-	"email": "fulano@example.com",
-	"telefone": "1122334455",
-	"dtaNascimento": "1990-01-01",
-	"dtaCadastro": "2022-10-15",
-	"segmentoMercado": "Tecnologia",
-	"dtaUltimaInteracao": "2023-05-20",
-	"interesses": "Desenvolvimento de software, Machine Learning"
-  }
+	{
+		"id": 1,
+		"nome": "Fulano da Silva",
+		"email": "fulano@example.com",
+		"telefone": "1122334455",
+		"dtaNascimento": "1990-01-01",
+		"dtaCadastro": "2022-10-15",
+		"segmentoMercado": "Tecnologia",
+		"dtaUltimaInteracao": "2023-05-20",
+		"interesses": "Tênis, Viagens, Música",
+		"historico": "Novo cliente em potencial"
+	}
 ]
 ```
 
@@ -77,21 +78,26 @@ Cria um novo cliente.
 |email|string|✅|Email do cliente.
 |telefone|string|✅|Telefone do cliente.
 |dtaNascimento|localDate|✅|Data de nascimento do cliente.
+|dtaCadastro|localDate|✅|Data de cadastro do cliente.
 |segmentoMercado|string|✅|Segmento de mercado do cliente.
-|dtaUltimaInteracao|localDate|✅|Data da ultima interação do cliente.
 |interesses|string|✅|Interesses do cliente.
+|historico|string|✅|Histórico do cliente.
+|dtaUltimaInteracao|localDate|✅|Data da ultima interação do cliente.
+
 
 
 ```js
 {
-	"nome": "Fulano da Silva",
-	"email": "fulano@example.com",
-	"telefone": "1122334455",
-	"dtaNascimento": "1990-01-01",
-	"dtaCadastro": "2022-10-15",
-	"segmentoMercado": "Tecnologia",
-	"dtaUltimaInteracao": "2023-05-20",
-	"interesses": "Desenvolvimento de software, Machine Learning"
+  "nome": "Fulano da Silva",
+  "email": "fulano@example.com",
+  "telefone": "1122334455",
+  "dtaNascimento": "1990-01-01",
+  "dtaCadastro": "2022-10-15",
+  "segmentoMercado": "Tecnologia",
+  "interesses": "Tênis, Viagens, Música",
+  "historico": "Novo cliente em potencial",
+  "dtaUltimaInteracao": "2023-05-20"
+	
 }
 ```
 
@@ -107,7 +113,8 @@ Cria um novo cliente.
 	"dtaCadastro": "2022-10-15",
 	"segmentoMercado": "Tecnologia",
 	"dtaUltimaInteracao": "2023-05-20",
-	"interesses": "Desenvolvimento de software, Machine Learning"
+	"interesses": "Tênis, Viagens, Música",
+	"historico": "Novo cliente em potencial"
 }
 ```
 
@@ -140,7 +147,8 @@ ID do cliente.
 	"dtaCadastro": "2022-10-15",
 	"segmentoMercado": "Tecnologia",
 	"dtaUltimaInteracao": "2023-05-20",
-	"interesses": "Desenvolvimento de software, Machine Learning"
+	"interesses": "Tênis, Viagens, Música",
+	"historico": "Novo cliente em potencial"
 }
 ```
 
