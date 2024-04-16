@@ -19,7 +19,7 @@ Guilherme Castro: Banco de Dados
 
 ## Vídeo de Apresentação
 
-
+https://www.youtube.com/watch?v=jBEfc79HPe0
 
 ## Documentação da API
 
@@ -129,7 +129,7 @@ Cria um novo cliente.
 
 ### Detalhes do Cliente
 
-`GET` /explorar/`{id}`
+`GET` /cliente/`{id}`
 
 Retorna um cliente específico pelo ID. Parâmetros de entrada:
 ID do cliente.
