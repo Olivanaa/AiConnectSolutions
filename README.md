@@ -13,8 +13,8 @@ Guilherme Castro: Banco de Dados
 ---
 
 ## Diagramas
-![Diagrama de classes](documentos\diagrama_classes.png)
-![DER](documentos\DER.jpg)
+![Diagrama de classes](diagrama_classes.png)
+![DER](DER.jpg)
 ---
 
 ## Vídeo de Apresentação
