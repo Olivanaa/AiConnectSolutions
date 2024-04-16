@@ -4,10 +4,10 @@ API do projeto AIConnectSolutions - Sistema de Relacionamento de Clientes
 ---
 
 ## Integrantes
-Ana Clara Rocha de Oliveira: Java
-Thiemi Hiratani Favaro: Mobile
-Stephany Siqueira: C#.Net
-Camila dos Santos Cunha: Devops
+Ana Clara Rocha de Oliveira: Java<br>
+Thiemi Hiratani Favaro: Mobile<br>
+Stephany Siqueira: C#.Net<br>
+Camila dos Santos Cunha: Devops<br>
 Guilherme Castro: Banco de Dados
 
 ---
