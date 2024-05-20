@@ -31,25 +31,25 @@ https://www.youtube.com/watch?v=jBEfc79HPe0
 - [Detalhes do Cliente](#detalhes-do-cliente)
 - [Atualizar dados do Cliente](#detalhes-do-cliente)
 - [Deletar dados do Cliente](#detalhes-do-cliente)
-<br>
+
 - [Listar Todos os Endereços](#listar-todos-os-endereços)
 - [Cadastrar Endereço](#cadastrar-endereço)
 - [Detalhes do Endereço](#detalhes-do-endereço)
 - [Atualizar dados do Endereço](#detalhes-do-endereço)
 - [Deletar dados do Endereço](#detalhes-do-endereço)
-<br>
+
 - [Listar Todos os Feedbacks](#listar-todos-os-feedbacks)
 - [Cadastrar Feedback](#cadastrar-feedback)
 - [Detalhes do Feedback](#detalhes-do-feedback)
 - [Atualizar dados do Feedback](#detalhes-do-feedback)
 - [Deletar dados do Feedback](#detalhes-do-feedback)
-<br>
+
 - [Listar Todos os Interesses](#listar-todos-os-interesses)
 - [Cadastrar Interesse](#cadastrar-interesse)
 - [Detalhes do Interesse](#detalhes-do-interesse)
 - [Atualizar dados do Interesse](#detalhes-do-interesse)
 - [Deletar dados do Interesse](#detalhes-do-interesse)
-<br>
+
 - [Listar Todas as Leads](#listar-todos-as-leads)
 - [Cadastrar Lead](#cadastrar-lead)
 - [Detalhes da Lead](#detalhes-da-lead)
