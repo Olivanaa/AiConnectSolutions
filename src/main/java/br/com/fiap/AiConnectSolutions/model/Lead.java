@@ -1,16 +1,28 @@
 package br.com.fiap.AiConnectSolutions.model;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Lead {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,11 +40,11 @@ public class Lead {
     @Size(min=10, max=11)
     private String telefone;
 
-    @NotBlank
-    private String interesse;
+    @NotNull
+    @PastOrPresent
+    private LocalDate dtInteracao;
 
-    // @ManyToOne
-    // private Cliente cliente;
-
-    // private Feedback feedback;
+    @ManyToOne
+    @JoinColumn(name = "historico_interesse_id")
+    private HistoricoInteresse interesse;
 }
