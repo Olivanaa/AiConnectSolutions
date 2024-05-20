@@ -11,6 +11,7 @@ Camila dos Santos Cunha: Devops<br>
 Guilherme Castro: Banco de Dados
 
 ---
+## Swagger
 Documentação swagger disponível em localhost:8080/docs
 ---
 
@@ -29,32 +30,32 @@ https://www.youtube.com/watch?v=jBEfc79HPe0
 - [Listar Todos os Clientes](#listar-todos-os-clientes)
 - [Cadastrar Cliente](#cadastrar-cliente)
 - [Detalhes do Cliente](#detalhes-do-cliente)
-- [Atualizar dados do Cliente](#detalhes-do-cliente)
-- [Deletar dados do Cliente](#detalhes-do-cliente)
+- [Atualizar dados do Cliente](#atualizar-dados-do-cliente)
+- [Deletar dados do Cliente](#deletar-dados-do-cliente)
 
 - [Listar Todos os Endereços](#listar-todos-os-endereços)
 - [Cadastrar Endereço](#cadastrar-endereço)
 - [Detalhes do Endereço](#detalhes-do-endereço)
-- [Atualizar dados do Endereço](#detalhes-do-endereço)
-- [Deletar dados do Endereço](#detalhes-do-endereço)
+- [Atualizar dados do Endereço](#atualizar-dados-do-endereço)
+- [Deletar dados do Endereço](#deletar-dados-do-endereço)
 
 - [Listar Todos os Feedbacks](#listar-todos-os-feedbacks)
 - [Cadastrar Feedback](#cadastrar-feedback)
 - [Detalhes do Feedback](#detalhes-do-feedback)
-- [Atualizar dados do Feedback](#detalhes-do-feedback)
-- [Deletar dados do Feedback](#detalhes-do-feedback)
+- [Atualizar dados do Feedback](#atualizar-dados-do-feedback)
+- [Deletar dados do Feedback](#deletar-dados-do-feedback)
 
 - [Listar Todos os Interesses](#listar-todos-os-interesses)
 - [Cadastrar Interesse](#cadastrar-interesse)
 - [Detalhes do Interesse](#detalhes-do-interesse)
-- [Atualizar dados do Interesse](#detalhes-do-interesse)
-- [Deletar dados do Interesse](#detalhes-do-interesse)
+- [Atualizar dados do Interesse](#atualizar-dados-do-interesse)
+- [Deletar dados do Interesse](#deletar-dados-do-interesse)
 
 - [Listar Todas as Leads](#listar-todos-as-leads)
 - [Cadastrar Lead](#cadastrar-lead)
 - [Detalhes da Lead](#detalhes-da-lead)
-- [Atualizar dados da Lead](#detalhes-da-lead)
-- [Deletar dados da Lead](#detalhes-da-lead)
+- [Atualizar dados da Lead](#atualizar-dados-da-lead)
+- [Deletar dados da Lead](#deletar-dados-da-lead)
 
 
 
