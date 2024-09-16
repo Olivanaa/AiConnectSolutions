@@ -1,14 +1,13 @@
-package br.com.fiap.AiConnectSolutions.service;
+package br.com.fiap.AiConnectSolutions.historicoInteresse;
 
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 import java.util.List;
 
+import br.com.fiap.AiConnectSolutions.historicoInteresse.dto.HistoricoInteresseFormRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import br.com.fiap.AiConnectSolutions.model.HistoricoInteresse;
-import br.com.fiap.AiConnectSolutions.repository.HistoricoInteresseRepository;
 import jakarta.validation.Valid;
 
 @Service
@@ -21,6 +20,7 @@ public class HistoricoInteresseService {
     }
 
     public HistoricoInteresse criar(@Valid HistoricoInteresse historico) {
+
         return repository.save(historico);
     }
 
@@ -38,11 +38,13 @@ public class HistoricoInteresseService {
         repository.deleteById(id);
     }
 
-    public HistoricoInteresse atualizar(Long id, HistoricoInteresse historico) {
+    public HistoricoInteresse atualizar(Long id, HistoricoInteresseFormRequest historico) {
         verificarHistorico(id);
-        historico.setId(id);
-        return repository.save(historico);
+        HistoricoInteresse interesseAtualizado = historico.toModel();
+        interesseAtualizado.setId(id);
+        return repository.save(interesseAtualizado);
     }
+
 
     private void verificarHistorico(Long id) {
         repository.findById(id).orElseThrow(

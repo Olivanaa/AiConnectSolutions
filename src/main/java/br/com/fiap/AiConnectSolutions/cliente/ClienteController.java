@@ -1,4 +1,4 @@
-package br.com.fiap.AiConnectSolutions.controller;
+package br.com.fiap.AiConnectSolutions.cliente;
 
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
@@ -6,7 +6,9 @@ import static org.springframework.http.HttpStatus.NO_CONTENT;
 
 import java.util.List;
 
+import br.com.fiap.AiConnectSolutions.cliente.dto.ClienteFormRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,15 +21,13 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import br.com.fiap.AiConnectSolutions.model.Cliente;
-import br.com.fiap.AiConnectSolutions.repository.ClienteRepository;
-import br.com.fiap.AiConnectSolutions.service.ClienteService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("cliente")
@@ -37,9 +37,8 @@ public class ClienteController {
     @Autowired
     ClienteRepository repository;
 
-    // public ClienteController(ClienteService service) {
-    //     this.service = service;
-    // }
+    @Autowired
+    ClienteService clienteService;
 
     @PostMapping
     @ResponseStatus(CREATED)
@@ -48,8 +47,10 @@ public class ClienteController {
             @ApiResponse(responseCode = "201", description = "Cliente cadastrado com sucesso!"),
             @ApiResponse(responseCode = "400", description = "Dados enviados são inválidos. Verifique o corpo da requisição", content = @Content)
     })
-    public Cliente create(@RequestBody @Valid Cliente cliente) {
-        return repository.save(cliente);
+    public ResponseEntity<Cliente> create(@RequestBody @Valid ClienteFormRequest clienteFormRequest, UriComponentsBuilder uriBuilder) {
+        var cliente = clienteService.criar(clienteFormRequest);
+        var uri = uriBuilder.path("cliente/{id}").buildAndExpand(cliente.getId()).toUri();
+        return ResponseEntity.created(uri).body(cliente);
     }
 
     @GetMapping
@@ -63,7 +64,7 @@ public class ClienteController {
            
     })
     public List<Cliente> index() {
-        return repository.findAll();
+        return clienteService.buscarTodas();
 
     }
 
@@ -78,7 +79,12 @@ public class ClienteController {
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
     public ResponseEntity<Cliente> show(@PathVariable Long id) {
-        return repository.findById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+        try {
+            Cliente cliente = clienteService.buscarPorId(id);
+            return ResponseEntity.ok(cliente);
+        }catch (ResponseStatusException e){
+            return ResponseEntity.status(e.getStatusCode()).build();
+        }
     }
 
     @PutMapping("{id}")
@@ -91,10 +97,8 @@ public class ClienteController {
             @ApiResponse(responseCode = "400", description = "Dados enviados são inválidos. Verifique o corpo da requisição.", content = @Content),
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
-    public Cliente update(@PathVariable Long id, @RequestBody Cliente cliente) {
-        verificarCliente(id);
-        cliente.setId(id);
-        return repository.save(cliente);
+    public Cliente update(@PathVariable Long id, @RequestBody ClienteFormRequest cliente) {
+        return clienteService.atualizar(id, cliente);
     }
 
     @DeleteMapping("{id}")
@@ -109,18 +113,10 @@ public class ClienteController {
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
     public void destroy(@PathVariable Long id) {
-        verificarCliente(id);
-        repository.deleteById(id);
+        clienteService.remover(id);
 
 
     }
 
-    private void verificarCliente(Long id) {
-        repository
-                .findById(id)
-                .orElseThrow(() -> new ResponseStatusException(
-                        NOT_FOUND,
-                        "Não existe cliente com o id informado"));
-    }
 
 }

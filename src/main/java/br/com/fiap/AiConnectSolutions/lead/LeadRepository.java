@@ -1,8 +1,6 @@
-package br.com.fiap.AiConnectSolutions.repository;
+package br.com.fiap.AiConnectSolutions.lead;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import br.com.fiap.AiConnectSolutions.model.Lead;
 
 public interface LeadRepository extends JpaRepository<Lead, Long>{
     

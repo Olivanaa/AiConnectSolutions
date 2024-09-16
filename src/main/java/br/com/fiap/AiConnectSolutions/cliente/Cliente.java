@@ -1,16 +1,13 @@
-package br.com.fiap.AiConnectSolutions.model;
-
+package br.com.fiap.AiConnectSolutions.cliente;
 import java.time.LocalDate;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import br.com.fiap.AiConnectSolutions.endereco.Endereco;
+import br.com.fiap.AiConnectSolutions.historicoInteresse.HistoricoInteresse;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -18,18 +15,20 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @Entity
+@Table(name = "cliente")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Lead {
+public class Cliente {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotBlank
-    @Size(min=3, max=200)
+    @Size(min=3, max= 200)
     private String nome;
 
     @NotBlank
@@ -41,10 +40,25 @@ public class Lead {
     private String telefone;
 
     @NotNull
+    @Past
+    private LocalDate dtaNascimento;
+
+    @NotNull
     @PastOrPresent
-    private LocalDate dtInteracao;
+    private LocalDate dtaCadastro;
+
+    @NotBlank
+    @Size(min=3, max=50)
+    private String segmentoMercado;
+
+    @NotNull
+    @PastOrPresent
+    private LocalDate dtaUltimaInteracao; 
 
     @ManyToOne
-    @JoinColumn(name = "historico_interesse_id")
+    private Endereco endereco;
+
+    @ManyToOne
     private HistoricoInteresse interesse;
+    
 }

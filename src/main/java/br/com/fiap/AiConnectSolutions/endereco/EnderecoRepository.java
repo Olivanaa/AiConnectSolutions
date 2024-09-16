@@ -1,10 +1,8 @@
-package br.com.fiap.AiConnectSolutions.repository;
+package br.com.fiap.AiConnectSolutions.endereco;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import br.com.fiap.AiConnectSolutions.model.Endereco;
 
 public interface EnderecoRepository extends JpaRepository<Endereco, Long>{
 

@@ -1,6 +1,6 @@
 package br.com.fiap.AiConnectSolutions.validation;
 
-import br.com.fiap.AiConnectSolutions.model.TipoEnderecoEnum;
+import br.com.fiap.AiConnectSolutions.enums.TipoEnderecoEnum;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 

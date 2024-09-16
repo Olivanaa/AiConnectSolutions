@@ -1,9 +1,7 @@
-package br.com.fiap.AiConnectSolutions.repository;
+package br.com.fiap.AiConnectSolutions.cliente;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import br.com.fiap.AiConnectSolutions.model.Cliente;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
     

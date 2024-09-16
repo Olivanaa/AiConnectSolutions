@@ -1,4 +1,4 @@
-package br.com.fiap.AiConnectSolutions.service;
+package br.com.fiap.AiConnectSolutions.feedback;
 
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
@@ -7,8 +7,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import br.com.fiap.AiConnectSolutions.model.Feedback;
-import br.com.fiap.AiConnectSolutions.repository.FeedbackRepository;
 import jakarta.validation.Valid;
 
 @Service

@@ -1,11 +1,9 @@
-package br.com.fiap.AiConnectSolutions.model;
+package br.com.fiap.AiConnectSolutions.feedback;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import br.com.fiap.AiConnectSolutions.cliente.Cliente;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
@@ -17,21 +15,28 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@Table(name = "feedback")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class HistoricoInteresse {
+public class Feedback {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotBlank
-    @Size(min=5, max=500)
-    private String interesse;
+    private String avaliacao;
+
+    @Size(min=5, max=300)
+    private String comentario;
 
     @NotNull
     @PastOrPresent
-    private LocalDate dtInteração;
+    private LocalDate dtFeedBack;
+
+    @ManyToOne
+    private Cliente cliente;
 
     
 }
+

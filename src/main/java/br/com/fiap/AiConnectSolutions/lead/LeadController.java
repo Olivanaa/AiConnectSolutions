@@ -1,10 +1,15 @@
-package br.com.fiap.AiConnectSolutions.controller;
+package br.com.fiap.AiConnectSolutions.lead;
 
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NO_CONTENT;
 
+import java.net.http.HttpResponse;
 import java.util.List;
 
+import br.com.fiap.AiConnectSolutions.cliente.Cliente;
+import br.com.fiap.AiConnectSolutions.cliente.dto.ClienteFormRequest;
+import br.com.fiap.AiConnectSolutions.lead.dto.LeadFormRequest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,14 +20,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.fiap.AiConnectSolutions.model.Lead;
-import br.com.fiap.AiConnectSolutions.service.LeadService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("lead")
@@ -42,8 +46,10 @@ public class LeadController {
             @ApiResponse(responseCode = "201", description = "Lead cadastrada com sucesso!"),
             @ApiResponse(responseCode = "400", description = "Dados enviados são inválidos. Verifique o corpo da requisição", content = @Content)
     })
-    public Lead create(@RequestBody @Valid Lead feedback) {
-        return service.criar(feedback);
+    public ResponseEntity<Lead> create(@RequestBody @Valid LeadFormRequest leadForm, UriComponentsBuilder uriBuilder) {
+        var lead = service.criar(leadForm);
+        var uri = uriBuilder.path("/lead/{id}").buildAndExpand(lead.getId()).toUri();
+        return ResponseEntity.created(uri).body(lead);
     }
 
     @GetMapping

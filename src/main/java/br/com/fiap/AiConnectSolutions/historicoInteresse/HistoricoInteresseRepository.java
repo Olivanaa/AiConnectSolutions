@@ -1,8 +1,6 @@
-package br.com.fiap.AiConnectSolutions.repository;
+package br.com.fiap.AiConnectSolutions.historicoInteresse;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import br.com.fiap.AiConnectSolutions.model.HistoricoInteresse;
 
 public interface HistoricoInteresseRepository extends JpaRepository<HistoricoInteresse, Long>{
     

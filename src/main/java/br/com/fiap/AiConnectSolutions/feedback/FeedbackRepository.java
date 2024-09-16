@@ -1,8 +1,6 @@
-package br.com.fiap.AiConnectSolutions.repository;
+package br.com.fiap.AiConnectSolutions.feedback;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import br.com.fiap.AiConnectSolutions.model.Feedback;
 
 public interface FeedbackRepository extends JpaRepository<Feedback, Long>{
 

@@ -1,10 +1,11 @@
-package br.com.fiap.AiConnectSolutions.controller;
+package br.com.fiap.AiConnectSolutions.historicoInteresse;
 
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NO_CONTENT;
 
 import java.util.List;
 
+import br.com.fiap.AiConnectSolutions.historicoInteresse.dto.HistoricoInteresseFormRequest;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.fiap.AiConnectSolutions.model.HistoricoInteresse;
-import br.com.fiap.AiConnectSolutions.service.HistoricoInteresseService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -85,7 +84,7 @@ public class HistoricoInteresseController {
             @ApiResponse(responseCode = "400", description = "Dados enviados são inválidos. Verifique o corpo da requisição.", content = @Content),
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
-    public HistoricoInteresse update(@PathVariable Long id, @RequestBody HistoricoInteresse historicoInteresse) {
+    public HistoricoInteresse update(@PathVariable Long id, @RequestBody HistoricoInteresseFormRequest historicoInteresse) {
 
         return service.atualizar(id, historicoInteresse);
     }

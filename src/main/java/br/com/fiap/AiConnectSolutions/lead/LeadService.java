@@ -1,28 +1,41 @@
-package br.com.fiap.AiConnectSolutions.service;
+package br.com.fiap.AiConnectSolutions.lead;
 
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 import java.util.List;
 
+import br.com.fiap.AiConnectSolutions.cliente.Cliente;
+import br.com.fiap.AiConnectSolutions.cliente.ClienteService;
+import br.com.fiap.AiConnectSolutions.cliente.dto.ClienteFormRequest;
+import br.com.fiap.AiConnectSolutions.endereco.Endereco;
+import br.com.fiap.AiConnectSolutions.endereco.EnderecoService;
+import br.com.fiap.AiConnectSolutions.historicoInteresse.HistoricoInteresse;
+import br.com.fiap.AiConnectSolutions.historicoInteresse.HistoricoInteresseService;
+import br.com.fiap.AiConnectSolutions.lead.dto.LeadFormRequest;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import br.com.fiap.AiConnectSolutions.model.Lead;
-import br.com.fiap.AiConnectSolutions.repository.LeadRepository;
 import jakarta.validation.Valid;
 
 @Service
 public class LeadService {
 
     LeadRepository repository;
+    HistoricoInteresseService historicoInteresseService;
 
     public LeadService(LeadRepository repository) {
         this.repository = repository;
+        this.historicoInteresseService = historicoInteresseService;
     }
 
-    public Lead criar(@Valid Lead lead) {
+    @Transactional
+    public Lead criar(@Valid LeadFormRequest leadForm) {
+        HistoricoInteresse interesse = historicoInteresseService.criar(leadForm.interesse().toModel());
+        Lead lead = leadForm.toModel(interesse);
         return repository.save(lead);
     }
+
 
     public List<Lead> buscarTodas() {
         return repository.findAll();
