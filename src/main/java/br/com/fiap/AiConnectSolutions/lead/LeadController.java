@@ -87,9 +87,9 @@ public class LeadController {
             @ApiResponse(responseCode = "400", description = "Dados enviados são inválidos. Verifique o corpo da requisição.", content = @Content),
             @ApiResponse(responseCode = "401", description = "Acesso não permitido. É necessário autentificação.", content = @Content)
     })
-    public Lead update(@PathVariable Long id, @RequestBody Lead lead) {
+    public Lead update(@PathVariable Long id, @RequestBody LeadFormRequest lead) {
 
-        return service.atualizar(id, lead);
+        return service.atualizar(id,lead);
     }
 
     @DeleteMapping("{id}")

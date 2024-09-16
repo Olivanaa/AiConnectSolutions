@@ -55,8 +55,25 @@ public class ClienteService {
     @Transactional
     public Cliente atualizar(Long id, @Valid ClienteFormRequest clienteFormRequest) {
         verificarCliente(id);
+        Cliente cli = buscarPorId(id);
 
-        Cliente clienteAtualizado = clienteFormRequest.toModel(null, null);
+        Endereco enderecoAtualizado;
+        if (clienteFormRequest.endereco() != null) {
+            enderecoAtualizado = enderecoService.atualizar(cli.getEndereco().getId(), clienteFormRequest.endereco());
+        } else {
+            enderecoAtualizado = cli.getEndereco();
+        }
+
+        HistoricoInteresse historicoAtualizado;
+        if (clienteFormRequest.interesse() != null) {
+            historicoAtualizado = historicoInteresseService.atualizar(cli.getInteresse().getId(), clienteFormRequest.interesse());
+        } else {
+            historicoAtualizado = cli.getInteresse();
+        }
+
+        Cliente clienteAtualizado = clienteFormRequest.toModel(enderecoAtualizado, historicoAtualizado);
+        clienteAtualizado.setId(id);
+
         clienteAtualizado.setId(id);
 
         return repository.save(clienteAtualizado);

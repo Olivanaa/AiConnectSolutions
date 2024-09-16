@@ -46,10 +46,20 @@ public class LeadService {
         repository.deleteById(id);
     }
 
-    public Lead atualizar(Long id, Lead lead) {
+    public Lead atualizar(Long id, @Valid LeadFormRequest leadForm) {
         verificarLead(id);
-        lead.setId(id);
-        return repository.save(lead);
+        Lead lead = buscarPorId(id);
+
+        HistoricoInteresse historicoAtualizado;
+        if(leadForm.interesse() != null) {
+            historicoAtualizado = historicoInteresseService.atualizar(lead.getInteresse().getId(), leadForm.interesse());
+        }else {
+            historicoAtualizado = lead.getInteresse();
+        }
+        Lead leadAtualizado = leadForm.toModel(historicoAtualizado);
+
+        leadAtualizado.setId(id);
+        return repository.save(leadAtualizado);
     }
 
     private void verificarLead(Long id) {
