@@ -2,9 +2,7 @@ package br.com.fiap.AiConnectSolutions.endereco;
 
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
-import br.com.fiap.AiConnectSolutions.cliente.Cliente;
 import br.com.fiap.AiConnectSolutions.endereco.dto.EnderecoFormRequest;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 

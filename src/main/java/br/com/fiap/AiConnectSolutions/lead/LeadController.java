@@ -3,12 +3,10 @@ package br.com.fiap.AiConnectSolutions.lead;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NO_CONTENT;
 
-import java.net.http.HttpResponse;
 import java.util.List;
 
-import br.com.fiap.AiConnectSolutions.cliente.Cliente;
-import br.com.fiap.AiConnectSolutions.cliente.dto.ClienteFormRequest;
 import br.com.fiap.AiConnectSolutions.lead.dto.LeadFormRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,11 +31,9 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Tag(name = "Lead")
 public class LeadController {
 
+    @Autowired
     LeadService service;
 
-    public LeadController(LeadService service) {
-        this.service = service;
-    }
 
     @PostMapping
     @ResponseStatus(CREATED)

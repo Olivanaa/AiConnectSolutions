@@ -8,8 +8,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
-import static org.springframework.http.HttpStatus.NOT_FOUND;
-
 @Service
 public class UserService {
 

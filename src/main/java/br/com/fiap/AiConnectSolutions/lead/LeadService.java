@@ -4,11 +4,6 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 import java.util.List;
 
-import br.com.fiap.AiConnectSolutions.cliente.Cliente;
-import br.com.fiap.AiConnectSolutions.cliente.ClienteService;
-import br.com.fiap.AiConnectSolutions.cliente.dto.ClienteFormRequest;
-import br.com.fiap.AiConnectSolutions.endereco.Endereco;
-import br.com.fiap.AiConnectSolutions.endereco.EnderecoService;
 import br.com.fiap.AiConnectSolutions.historicoInteresse.HistoricoInteresse;
 import br.com.fiap.AiConnectSolutions.historicoInteresse.HistoricoInteresseService;
 import br.com.fiap.AiConnectSolutions.lead.dto.LeadFormRequest;
@@ -24,7 +19,7 @@ public class LeadService {
     LeadRepository repository;
     HistoricoInteresseService historicoInteresseService;
 
-    public LeadService(LeadRepository repository) {
+    public LeadService(LeadRepository repository, HistoricoInteresseService historicoInteresseService) {
         this.repository = repository;
         this.historicoInteresseService = historicoInteresseService;
     }

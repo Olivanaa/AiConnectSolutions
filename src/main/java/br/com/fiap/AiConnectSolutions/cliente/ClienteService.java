@@ -6,13 +6,10 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 import br.com.fiap.AiConnectSolutions.cliente.dto.ClienteFormRequest;
 import br.com.fiap.AiConnectSolutions.endereco.Endereco;
-import br.com.fiap.AiConnectSolutions.endereco.EnderecoRepository;
 import br.com.fiap.AiConnectSolutions.endereco.EnderecoService;
 import br.com.fiap.AiConnectSolutions.historicoInteresse.HistoricoInteresse;
-import br.com.fiap.AiConnectSolutions.historicoInteresse.HistoricoInteresseRepository;
 import br.com.fiap.AiConnectSolutions.historicoInteresse.HistoricoInteresseService;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
